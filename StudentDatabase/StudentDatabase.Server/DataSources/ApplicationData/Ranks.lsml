@@ -63,6 +63,20 @@
         FromEnd="Rank"
         ToEnd="StudentGradings" />
       <EntityProperty
+        Name="MinAgeReq"
+        PropertyType=":Int16?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="MaxAge"
+        PropertyType=":Int16?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="RowVersion"
         PropertyType=":RowVersion">
         <EntityProperty.Attributes>

@@ -251,6 +251,7 @@
     <LightSwitchModel Include="Screens\StudentsScreen.lsml" />
     <LightSwitchModel Include="Screens\CreateNewGrading.lsml" />
     <LightSwitchModel Include="Screens\GradingInvites.lsml" />
+    <LightSwitchModel Include="Screens\EditableRanksGrid.lsml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

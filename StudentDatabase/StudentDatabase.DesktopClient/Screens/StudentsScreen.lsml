@@ -341,7 +341,16 @@
               <ContentItem
                 Name="Rank1"
                 Kind="Details"
-                DataType="Rank">
+                DataType="Rank"
+                View="Microsoft.LightSwitch.RichClient:DetailsAutoCompleteBox">
+                <ContentItem.ChoicesSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="StudentsScreen/Properties[RanksByAge]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.ChoicesSource>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -383,6 +392,19 @@
                     <ChainExpression>
                       <MemberExpression
                         Member="Student/Properties[FacebookProfile]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="DateOfBirth"
+                Kind="Value"
+                DataType=":Date?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Student/Properties[DateOfBirth]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -732,6 +754,44 @@
           <ChainExpression>
             <CallExpression
               Target="StudentsScreen/Properties[Notes]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="RanksByAge"
+        PageSize="45"
+        PropertyType="CollectionView$Rank">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="RanksByAgeQuery"
+            ReturnType="Rank*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[RanksByAge]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="StudentsScreen/Properties[RanksByAge]/Query">
+              <ArgumentExpression
+                Parameter="Age">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="StudentsScreen/Properties[Students]" />
+                  <MemberExpression
+                    Member="SelectedItem" />
+                  <MemberExpression
+                    Member="Age" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>

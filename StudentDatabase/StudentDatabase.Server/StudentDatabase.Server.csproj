@@ -212,6 +212,9 @@
     <LightSwitchModel Include="DataSources\ApplicationData\Gradings.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\StudentGradingsSet.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Notes.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\RanksByAge.lsml">
+      <DependentUpon>Ranks.lsml</DependentUpon>
+    </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

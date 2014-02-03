@@ -78,6 +78,20 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
+        Name="DateOfBirth"
+        PropertyType=":Date?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Age"
+        PropertyType=":Int16?">
+        <EntityProperty.Attributes>
+          <Computed />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="Address"
         PropertyType=":String?">
         <EntityProperty.Attributes>

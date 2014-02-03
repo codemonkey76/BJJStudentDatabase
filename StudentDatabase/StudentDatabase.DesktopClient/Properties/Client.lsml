@@ -48,6 +48,9 @@
     <ApplicationCommand
       Name="ScreenCommandShowGradingInvites"
       Target="!module/Methods[ShowGradingInvites]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowEditableRanksGrid"
+      Target="!module/Methods[ShowEditableRanksGrid]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -69,6 +72,9 @@
       <ApplicationNavigationLink
         Name="GradingInvites"
         Command="!module/Commands[ScreenCommandShowGradingInvites]" />
+      <ApplicationNavigationLink
+        Name="EditableRanksGrid"
+        Command="!module/Commands[ScreenCommandShowEditableRanksGrid]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">
