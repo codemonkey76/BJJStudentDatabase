@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="Rank">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Belt"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Stripes"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="Students"
+        Association="Student_Rank"
+        FromEnd="Rank"
+        ToEnd="Student" />
+      <EntityProperty
+        Name="FullBelt"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="StudentGradingsCollection"
+        Association="StudentGradings_Rank"
+        FromEnd="Rank"
+        ToEnd="StudentGradings" />
+      <NavigationProperty
+        Name="StudentGradingsCollection1"
+        Association="StudentGradings_Rank1"
+        FromEnd="Rank"
+        ToEnd="StudentGradings" />
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <UseForConcurrency />
+          <Generated />
+          <Hidden />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="Ranks"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="Rank" />
+    <QueryOperation
+      Name="Ranks_Single"
+      ReturnType="Rank">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Ranks" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="Ranks_SingleOrDefault"
+      ReturnType="Rank">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Ranks" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="Student_Ranks"
+      Association="Student_Rank">
+      <AssociationSetEnd
+        Name="Student"
+        EntitySet="Students" />
+      <AssociationSetEnd
+        Name="Rank"
+        EntitySet="Ranks" />
+    </AssociationSet>
+    <AssociationSet
+      Name="StudentGradings_Ranks"
+      Association="StudentGradings_Rank">
+      <AssociationSetEnd
+        Name="StudentGradings"
+        EntitySet="StudentGradingsSet" />
+      <AssociationSetEnd
+        Name="Rank"
+        EntitySet="Ranks" />
+    </AssociationSet>
+    <AssociationSet
+      Name="StudentGradings_Rank1Set"
+      Association="StudentGradings_Rank1">
+      <AssociationSetEnd
+        Name="StudentGradings"
+        EntitySet="StudentGradingsSet" />
+      <AssociationSetEnd
+        Name="Rank"
+        EntitySet="Ranks" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association
+    Name="Student_Rank">
+    <AssociationEnd
+      Name="Student"
+      Multiplicity="Many"
+      EntityType="Student" />
+    <AssociationEnd
+      Name="Rank"
+      Multiplicity="One"
+      EntityType="Rank">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <AssociationSetMapping
+      AssociationSet="Student_Ranks">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Student_Ranks" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Student_Ranks]/Members[Student]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Student_Rank" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Student_Ranks]/Members[Rank]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="StudentGradings_Ranks">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="StudentGradings_Ranks" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[StudentGradings_Ranks]/Members[StudentGradings]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="StudentGradings_Rank" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[StudentGradings_Ranks]/Members[Rank]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="StudentGradings_Rank1Set">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="StudentGradings_Rank1Set" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[StudentGradings_Rank1Set]/Members[StudentGradings]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="StudentGradings_Rank1" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[StudentGradings_Rank1Set]/Members[Rank]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="StudentGradings_Rank">
+    <AssociationEnd
+      Name="StudentGradings"
+      Multiplicity="Many"
+      EntityType="StudentGradings" />
+    <AssociationEnd
+      Name="Rank"
+      Multiplicity="One"
+      EntityType="Rank">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="StudentGradings_Rank1">
+    <AssociationEnd
+      Name="StudentGradings"
+      Multiplicity="Many"
+      EntityType="StudentGradings" />
+    <AssociationEnd
+      Name="Rank"
+      Multiplicity="One"
+      EntityType="Rank">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+</ServiceApplication>
