@@ -58,6 +58,14 @@
       <QueryOperationParameter
         Name="Age"
         ParameterType=":Int16?" />
+      <QueryOperation.SortCriteria>
+        <SortCriterion>
+          <ChainExpression>
+            <MemberExpression
+              Member="Sequence" />
+          </ChainExpression>
+        </SortCriterion>
+      </QueryOperation.SortCriteria>
     </QueryOperation>
   </EntityContainer>
 </ServiceApplication>

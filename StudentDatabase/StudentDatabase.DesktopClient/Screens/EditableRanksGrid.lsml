@@ -40,6 +40,19 @@
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
+                Name="Sequence"
+                Kind="Value"
+                DataType=":Int16?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Rank/Properties[Sequence]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
                 Name="Belt"
                 Kind="Value"
                 DataType=":String">

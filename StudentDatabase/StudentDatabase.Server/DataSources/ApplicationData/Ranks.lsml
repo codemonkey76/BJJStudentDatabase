@@ -24,6 +24,13 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
+        Name="Sequence"
+        PropertyType=":Int16?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="Belt"
         PropertyType=":String">
         <EntityProperty.Attributes>

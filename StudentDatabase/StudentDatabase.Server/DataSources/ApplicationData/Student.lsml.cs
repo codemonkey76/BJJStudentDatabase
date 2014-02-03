@@ -15,7 +15,7 @@ namespace LightSwitchApplication
 
         partial void Age_Compute(ref short? result)
         {
-            result = (short)(DateTime.Today.Subtract((System.DateTime)this.DateOfBirth).TotalDays/365.25);
+            result = ((this.DateOfBirth==null)?(short?)null:(short)(DateTime.Today.Subtract((System.DateTime)this.DateOfBirth).TotalDays/365.25));
 
         }
     }
