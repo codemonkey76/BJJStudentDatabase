@@ -148,6 +148,42 @@
         FromEnd="Student"
         ToEnd="Note" />
       <EntityProperty
+        Name="Referral"
+        PropertyType=":Int16?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+          <SupportedValue
+            DisplayName="Friend (Word Of Mouth)"
+            Value="0" />
+          <SupportedValue
+            DisplayName="Facebook (Organic)"
+            Value="1" />
+          <SupportedValue
+            DisplayName="Facebook (Paid Ad)"
+            Value="2" />
+          <SupportedValue
+            DisplayName="Fight Club Main Site"
+            Value="3" />
+          <SupportedValue
+            DisplayName="BJJA Website"
+            Value="4" />
+          <SupportedValue
+            DisplayName="Google Search"
+            Value="5" />
+          <SupportedValue
+            DisplayName="Other"
+            Value="6" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ReferralExtra"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="RowVersion"
         PropertyType=":RowVersion">
         <EntityProperty.Attributes>
